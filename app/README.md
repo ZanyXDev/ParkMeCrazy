@@ -3,7 +3,10 @@
 A "Rush Hour"/"Traffic Jam" game clone written in Qt+QML
 
 ## Author
-Mures Andone 
+[Mures Andone](https://contactout.com/mures-andone-44559) 
+
+Email Mures Andone at wmures@gmail.com and mures.andone@movial.com
+ 
 **Based on** ([Mures Andone version](https://sourceforge.net/p/parkmeecrazy/code/ci/master/tree/))
 
 Paul zanyxdev@gmail.com [https://zanyxdev.github.io/parkmecrazy]
