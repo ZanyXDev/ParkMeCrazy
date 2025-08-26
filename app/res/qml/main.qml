@@ -4,6 +4,7 @@ import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as QQC2
 
 import common 1.0
+import ui 1.0
 
 import io.github.zanyxdev.parkmecrazy 1.0
 import io.github.zanyxdev.parkmecrazy.hal 1.0
@@ -81,7 +82,9 @@ QQC2.ApplicationWindow {
   }
 
   // ----- Visual children
-
+  GameBoard {
+    id: gameboard
+  }
   // ----- Qt provided non-visual children
 
   //CarModel {
