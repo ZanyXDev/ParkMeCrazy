@@ -1,8 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file>res/images/icons/ic_bullet.svg</file>
-        <file>res/images/icons/ic_drawer.svg</file>
-        <file>res/images/icons/ic_bar_chart.svg</file>
-        <file>res/images/planet_sprite.png</file>
+        <file>res/images/border.png</file>
+        <file>res/images/parkmeecrazy.svg</file>
+        <file>res/images/parkmeecrazy64.png</file>
+        <file>res/images/parkmeecrazy80.png</file>
     </qresource>
 </RCC>

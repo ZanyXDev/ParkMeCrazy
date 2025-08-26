@@ -93,6 +93,8 @@ bump_version{
 }
 
 DISTFILES += \
+    LICENSE \
+    PRIVACY.md \
     README.md \
     activity_name.txt \   
     package_name.txt \
