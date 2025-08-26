@@ -25,6 +25,7 @@ QQC2.ApplicationWindow {
   // ----- Signal declarations
   signal screenOrientationUpdated(int screenOrientation)
 
+
   /**
   * @brief
   * При работе с Android системами обычно выбирается базовый фрейм 360×640,
@@ -83,9 +84,9 @@ QQC2.ApplicationWindow {
 
   // ----- Qt provided non-visual children
 
-  CarModel {
-    id: carModel
-  }
+  //CarModel {
+  //  id: carModel
+  //}
 
   // ----- Custom non-visual children
 

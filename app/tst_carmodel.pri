@@ -1,6 +1,8 @@
 HEADERS += \
-    $$PWD/src/validator.h 
+    $$PWD/src/car.h \
+    $$PWD/src/carmodel.h 
 
 SOURCES += \
-    $$PWD/src/validator.cpp 
+    $$PWD/src/car.cpp \
+    $$PWD/src/carmodel.cpp
 

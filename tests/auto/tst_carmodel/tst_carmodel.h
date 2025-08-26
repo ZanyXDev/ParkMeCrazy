@@ -1,18 +1,18 @@
 #pragma once
 
 #include <QObject>
-#include "src/carmodel.h"
 
 // add necessary includes here
 #include <QAbstractItemModelTester>
+#include "src/carmodel.h"
 
 class TestCarModel: public QObject
 {
     Q_OBJECT
 
 public:
-    CarBoardModel();
-    ~CarBoardModel();
+    TestCarModel();
+    ~TestCarModel();
 
 private slots:
     // вызывается перед первой тестовой функцией
@@ -23,6 +23,7 @@ private slots:
     void cleanup(){};
     // вызывается после последней тестовой функции
     void cleanupTestCase(){};
+
 private:
     CarModel m_model;
     QAbstractItemModelTester* m_tester;

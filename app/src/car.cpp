@@ -1,7 +1,9 @@
 #include "car.h"
 
-Car::Car()
+Car::Car(QObject *parent)
+    : QObject{parent}
 {
+
 }
 
 Car::Car(const Car &other)
@@ -37,82 +39,11 @@ Car::Car(int x, int y, int orientation, int isRed, int length, QString color) :
 {
 }
 
-QString Car::toString()
+QString Car::toString() const
 {
-    QString ret("");
-    ret.append("%1,").arg(x);
-    ret.append("%2,").arg(y);
-    ret.append("%3,").arg(orientation);
-    ret.append("%4,").arg(isRed);
-    ret.append("%5,").arg(length);
-    ret.append(color);
+    QString ret = QString("%1,%2,%3,%4,%5,%6").arg(x).arg(y).arg(orientation).arg(isRed).arg(length).append(color);
     return ret;
 }
 
-CarModel::CarModel(QObject *parent)
-    : QAbstractListModel(parent)
-{
-    QHash<int, QByteArray> roles;
 
-    roles[XRole] = "X";
-    roles[YRole] = "Y";
-    roles[OrientationRole] = "Orientation";
-    roles[IsRedRole] = "IsRed";
-    roles[LengthRole] = "Length";
-    roles[ColorRole] = "Color";
-    roles[NameRole] = "Name";
-    roles[CarIdxRole] = "CarIdx";
-    roles[DragMinX] = "DragMinX";
-    roles[DragMaxX] = "DragMaxX";
-    roles[DragMinY] = "DragMinY";
-    roles[DragMaxY] = "DragMaxY";
 
-    setRoleNames(roles);
-}
-
-void CarModel::addCar(Car *car)
-{
-    beginInsertRows(QModelIndex(), rowCount(), rowCount());
-    m_cars << car;
-    endInsertRows();
-}
-
-void CarModel::clear()
-{
-    beginRemoveRows(QModelIndex(), 0, rowCount()-1);
-    m_cars.clear();
-    endRemoveRows();
-}
-
-int CarModel::rowCount(const QModelIndex & parent) const {
-    Q_UNUSED(parent);
-    return m_cars.count();
-}
-
-QVariant CarModel::data(const QModelIndex & index, int role) const {
-    if (index.row() < 0 || index.row() > m_cars.count())
-        return QVariant();
-
-    Car *c = m_cars[index.row()];
-    const Car &car = *c;
-    switch(role) {
-        case XRole: return car.x;
-        case YRole: return car.y;
-        case OrientationRole: return car.orientation;
-        case IsRedRole: return car.isRed;
-        case LengthRole: return car.length;
-        case ColorRole: return car.color;
-        case NameRole: return car.name;
-        case CarIdxRole: return car.carIdx;
-        case DragMinX : return car.dragMinX;
-        case DragMaxX : return car.dragMaxX;
-        case DragMinY : return car.dragMinY;
-        case DragMaxY : return car.dragMaxY;
-        default: return QVariant();
-    }
-}
-
-Car* CarModel::getCarAt(int index)
-{
-    return m_cars.at(index);
-}

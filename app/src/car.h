@@ -1,18 +1,18 @@
-#ifndef CAR_H
-#define CAR_H
+#pragma once
+#include <QObject>
 
-#include <QtCore>
-
-class Car
+class Car : public QObject
 {
+     Q_OBJECT
 public:
-    explicit Car();
+    explicit Car(QObject *parent = nullptr);
     Car(int x, int y, int orientation, int isRed, int length, QString color);
     Car(const Car &other);
 
-    QString toString();
+    QString toString() const;
     //public all the way, because
     //I'm beeing lazy with setters and getters :D
+    ///TODO move to private and add setter/getter 26/08/2025
     int x,y;
     int orientation;
     int isRed;
@@ -25,33 +25,5 @@ public:
 
 };
 
-class CarModel : public QAbstractListModel
-{
-    Q_OBJECT
-public:
-    enum CarRoles {
-        XRole = Qt::UserRole + 1,
-        YRole,
-        OrientationRole,
-        IsRedRole,
-        LengthRole,
-        ColorRole,
-        NameRole,
-        CarIdxRole,
-        DragMinX,
-        DragMaxX,
-        DragMinY,
-        DragMaxY
-    };
-    CarModel(QObject *parent = 0);
-    void addCar(Car* car);
-    int rowCount(const QModelIndex & parent = QModelIndex()) const;
-    QVariant data(const QModelIndex & index, int role = Qt::DisplayRole) const;
-    void clear();
-    Car* getCarAt(int index);
 
-private:
-    QList<Car* > m_cars;
-};
 
-#endif // CAR_H

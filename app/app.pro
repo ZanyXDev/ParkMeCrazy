@@ -25,19 +25,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 HEADERS += \
-        src/carmodel.h 
+        src/hal.h \
+        src/carmodel.h \
+        src/car.h
 
 SOURCES += \
-            src/carmodel.cpp \
+            src/hal.cpp \
             src/main.cpp \
-            src/hal.cpp  
+            src/carmodel.cpp \
+            src/car.cpp \
 
 RESOURCES += \
         images.qrc \
         qml.qrc \
-        sounds.qrc \
         fonts.qrc
-#js.qrc \
+#       sounds.qrc \
+#       js.qrc \
 #	i18n.qrc
 
 #Translate

@@ -1,7 +1,7 @@
 QT += testlib
 TEMPLATE = app
 
-TARGET = io.github.zanyxdev.floodit.tst_carmodel
+TARGET = io.github.zanyxdev.tst_carmodel
 
 CONFIG += console qt
 CONFIG += testcase
@@ -10,13 +10,13 @@ CONFIG -= app_bundle
 
 
 INCLUDEPATH += ../../../app/
-include(../../../app/car.pri)
+include(../../../app/tst_carmodel.pri)
 
 HEADERS += \
-                        tst_carmodel.h
+            tst_carmodel.h
 SOURCES +=  \                       
-                        main.cpp \
-		    tst_carmodel.cpp
+            main.cpp \
+            tst_carmodel.cpp
 
 # Force C++17 if available
 contains(QT_CONFIG, c++1z): CONFIG += c++1z
