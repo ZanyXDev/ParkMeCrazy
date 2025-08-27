@@ -1,3 +1,5 @@
 <RCC>
-    <qresource prefix="/"/>
+    <qresource prefix="/">
+        <file>res/sounds/shorttick.wav</file>
+    </qresource>
 </RCC>

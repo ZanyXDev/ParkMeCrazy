@@ -38,8 +38,8 @@ SOURCES += \
 RESOURCES += \
         images.qrc \
         qml.qrc \
-        fonts.qrc
-#       sounds.qrc \
+        fonts.qrc \
+        sounds.qrc
 #       js.qrc \
 #	i18n.qrc
 
