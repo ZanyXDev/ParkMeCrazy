@@ -206,9 +206,73 @@ QQC2.ApplicationWindow {
         RowLayout {
           id: buttonsRow
           anchors.fill: parent
-          spacing: 4
+          spacing: 16
           Item {
             Layout.fillWidth: true
+          }
+          PButton {
+            id: btnNext
+            isSoundEnable: false
+            Layout.preferredWidth: 64
+            Layout.preferredHeight: 48
+            text: "Next"
+            color: "yellow"
+            font.family: AppSingleton.astraFont.name
+            font.pixelSize: AppSingleton.averageFontSize
+            gradientColor: "green"
+            onClicked: {
+
+              // if (boardUtils.loadLevel(board.levelIndex + 1)) {
+              //   board.refreshBoardData()
+              // }
+            }
+          }
+
+          PButton {
+            id: btnRestart
+            isSoundEnable: false
+            Layout.preferredWidth: 64
+            Layout.preferredHeight: 48
+            text: "Restart"
+            color: "yellow"
+            font.family: AppSingleton.astraFont.name
+            font.pixelSize: AppSingleton.averageFontSize
+            gradientColor: "green"
+            onClicked: {
+              AppSingleton.toLog("called restart level, current level: ") //+ board.levelIndex)
+              //boardUtils.restartLevel()
+              //board.refreshBoardData()
+            }
+          }
+          PButton {
+            id: btnJump
+            isSoundEnable: false
+            Layout.preferredWidth: 64
+            Layout.preferredHeight: 48
+            text: "Jump to"
+            color: "yellow"
+            font.family: AppSingleton.astraFont.name
+            font.pixelSize: AppSingleton.averageFontSize
+            gradientColor: "green"
+            onClicked: {
+              AppSingleton.toLog("called JumpTo level, current level: ") //+ board.levelIndex)
+              // box.doChooseLevel()
+            }
+          }
+          PButton {
+            id: btnAbout
+            isSoundEnable: false
+            Layout.preferredWidth: 64
+            Layout.preferredHeight: 48
+            text: "About"
+            color: "yellow"
+            font.family: AppSingleton.astraFont.name
+            font.pixelSize: AppSingleton.averageFontSize
+            gradientColor: "green"
+            onClicked: {
+              AppSingleton.toLog("About")
+              //   box.doAbout()
+            }
           }
           Item {
             Layout.fillWidth: true
