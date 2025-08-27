@@ -82,9 +82,84 @@ QQC2.ApplicationWindow {
   }
 
   // ----- Visual children
-  GameBoard {
-    id: gameboard
+  ColumnLayout {
+    id: mainLayout
+    spacing: 4
+    anchors {
+      margins: 4
+      fill: parent
+    }
+    component ProportionalRect: Item {
+      Layout.fillWidth: true
+      Layout.fillHeight: true
+      Layout.preferredWidth: 1
+      Layout.preferredHeight: 1
+    }
+    ProportionalRect {
+      id: titleRectangle
+      Layout.preferredHeight: 40
+      Rectangle {
+        id: bgrTitleRect
+        anchors.fill: parent
+        color: "black"
+        RowLayout {
+          id: titleRow
+          anchors.fill: parent
+          spacing: 4
+          component InfoText: Text {
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignRight
+            font.family: AppSingleton.astraFont.name
+            font.pixelSize: AppSingleton.extraLargeFontSize
+          }
+          Item {
+            Layout.fillWidth: true
+          }
+          InfoText {
+            text: qsTr("Park")
+            color: "orange"
+          }
+          InfoText {
+            text: qsTr("Mee")
+            color: "steelblue"
+            font.bold: true
+          }
+          InfoText {
+            text: "Crazy!"
+            color: "darkred"
+          }
+          Item {
+            Layout.fillWidth: true
+          }
+        }
+        Component.onCompleted: {
+          if (isDebugMode) {
+            let debugMsg = `bgrTitleRect: ${bgrTitleRect.height}h, ${bgrTitleRect.width}w`
+            AppSingleton.toLog(debugMsg)
+          }
+        }
+      }
+    }
+    ProportionalRect {
+      id: gameRectangle
+      Layout.preferredHeight: 280
+      Rectangle {
+        id: testRect2
+        anchors.fill: parent
+        color: "yellow"
+      }
+    }
+    ProportionalRect {
+      id: buttonsRectangle
+      Layout.preferredHeight: 60
+      Rectangle {
+        id: testRect3
+        anchors.fill: parent
+        color: "green"
+      }
+    }
   }
+
   // ----- Qt provided non-visual children
 
   //CarModel {
