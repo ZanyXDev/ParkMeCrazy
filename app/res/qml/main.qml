@@ -84,29 +84,33 @@ QQC2.ApplicationWindow {
   // ----- Visual children
   ColumnLayout {
     id: mainLayout
-    spacing: 4
+    spacing: 2
     anchors {
-      margins: 4
+      margins: 2
       fill: parent
     }
-    component ProportionalRect: Item {
+    component ProportionalItem: Item {
       Layout.fillWidth: true
       Layout.fillHeight: true
       Layout.preferredWidth: 1
       Layout.preferredHeight: 1
     }
-    ProportionalRect {
-      id: titleRectangle
-      Layout.preferredHeight: 40
+    ProportionalItem {
+      id: titleItem
+      Layout.preferredHeight: 72
       Rectangle {
         id: bgrTitleRect
-        anchors.fill: parent
         color: "black"
+        anchors.fill: parent
+        radius: 4
+
         RowLayout {
           id: titleRow
           anchors.fill: parent
           spacing: 4
           component InfoText: Text {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignRight
             font.family: AppSingleton.astraFont.name
@@ -140,8 +144,8 @@ QQC2.ApplicationWindow {
         }
       }
     }
-    ProportionalRect {
-      id: gameRectangle
+    ProportionalItem {
+      id: gameItem
       Layout.preferredHeight: 280
       Rectangle {
         id: testRect2
@@ -149,13 +153,67 @@ QQC2.ApplicationWindow {
         color: "yellow"
       }
     }
-    ProportionalRect {
-      id: buttonsRectangle
-      Layout.preferredHeight: 60
+    ProportionalItem {
+      id: toolBoxItem
+      Layout.preferredHeight: 40
       Rectangle {
-        id: testRect3
+        id: bgrtoolBoxRect
         anchors.fill: parent
-        color: "green"
+        color: "black"
+        radius: 4
+        RowLayout {
+          id: toolBoxRow
+          anchors.fill: parent
+          spacing: 4
+          component LevelsMovesText: Text {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignRight
+            font.family: AppSingleton.astraFont.name
+            font.pixelSize: AppSingleton.largeFontSize
+            color: "grey"
+          }
+          Item {
+            Layout.fillWidth: true
+          }
+          LevelsMovesText {
+            id: levelTxt
+            text: qsTr(" Level: ") + 99 //+ board.levelIndex
+          }
+          Item {
+            Layout.fillWidth: true
+          }
+          LevelsMovesText {
+            id: movesTxt
+            text: qsTr("Moves: ") + 99 //+ board.boardMoves + " "
+          }
+          Item {
+            Layout.preferredWidth: 20
+            Layout.fillWidth: true
+          }
+        }
+      }
+    }
+    ProportionalItem {
+      id: buttonsItem
+      Layout.preferredHeight: 40
+      Rectangle {
+        id: bgrButtonsRect
+        anchors.fill: parent
+        radius: 4
+        color: "black"
+        RowLayout {
+          id: buttonsRow
+          anchors.fill: parent
+          spacing: 4
+          Item {
+            Layout.fillWidth: true
+          }
+          Item {
+            Layout.fillWidth: true
+          }
+        }
       }
     }
   }
