@@ -8,5 +8,6 @@
         <file>res/qml/ui/qmldir</file>
         <file>res/qml/ui/gameboard.qml</file>
         <file>res/qml/ui/pbutton.qml</file>
+        <file>res/qml/ui/pboard.qml</file>
     </qresource>
 </RCC>

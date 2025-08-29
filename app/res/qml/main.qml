@@ -145,12 +145,11 @@ QQC2.ApplicationWindow {
       }
     }
     ProportionalItem {
-      id: gameItem
+      id: boardItem
       Layout.preferredHeight: 280
-      Rectangle {
-        id: testRect2
+      PBoard {
+        id: pboard
         anchors.fill: parent
-        color: "yellow"
       }
     }
     ProportionalItem {

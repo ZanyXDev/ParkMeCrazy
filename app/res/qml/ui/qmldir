@@ -2,3 +2,4 @@ module ui
 GameBoard 1.0 gameboard.qml
 PButton 1.0 pbutton.qml
 
+PBoard 1.0 pboard.qml
